@@ -1,0 +1,13 @@
+.gitignore
+pyproject.toml
+backend/GLOBALS.py
+backend/Logger.py
+backend/Market.py
+backend/MarketOld.py
+backend/MarketUpdaterOld.py
+backend/MarketsRef.py
+backend/utils.py
+taml.ai.egg-info/PKG-INFO
+taml.ai.egg-info/SOURCES.txt
+taml.ai.egg-info/dependency_links.txt
+taml.ai.egg-info/top_level.txt
