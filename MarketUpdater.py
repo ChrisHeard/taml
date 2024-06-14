@@ -1,4 +1,4 @@
-from Market import Market
+
 from typing import Callable, Optional, List, Dict, Any
 from GLOBALS import GLOBALS as GB
 from io import StringIO
@@ -14,7 +14,7 @@ class MarketUpdater():
     reference_url: str
     parser: Optional[Callable[[str], str]]
 
-    def __init__(self, market: Market, url, parser) -> None:
+    def __init__(self, market: object, url, parser) -> None:
         
         self.market = market
         self.url = url
