@@ -4,10 +4,10 @@ import json
 import requests
 from bs4 import BeautifulSoup as bs, ResultSet
 from datetime import datetime
-from typing import List, Dict
+from typing import List, Dict, Any
 from redis import Redis
 
-def get_html_tables(url: str) -> ResultSet[any]:
+def get_html_tables(url: str) -> ResultSet[Any]:
 
     response = requests.get(url)
 
@@ -27,15 +27,14 @@ def normalize_dicts(dicts: List[Dict]) -> List[Dict]:
     Returns a list of dictionaries, each dict contains the full set of unique keys. 
     Values are empty strings if the original dict did not contain the corresponding key.
     '''
-    unique_keys = OrderedDict()
+    unique_keys_dict: OrderedDict = OrderedDict()
     for sub_dict in dicts:
         for key in sub_dict.keys():
-            if key not in unique_keys:
-                unique_keys[key] = None
+            if key not in unique_keys_dict:
+                unique_keys_dict[key] = None
     
-    unique_keys = list(unique_keys.keys())
+    unique_keys = list(unique_keys_dict.keys())
 
-    
     normalized_list = []
     for sub_dict in dicts:
         normalized_sub_dict = {key: sub_dict.get(key, "") for key in unique_keys}
@@ -43,7 +42,7 @@ def normalize_dicts(dicts: List[Dict]) -> List[Dict]:
 
     return normalized_list
 
-def redis_store_py_obj(client: Redis, hash_key: bytes, payload: any, dt_now: datetime) -> None:
+def redis_store_py_obj(client: Redis, hash_key: str, payload: Any, dt_now: datetime) -> None:
 
     serialized_payload: str = json.dumps(payload)
 

@@ -1,3 +1,9 @@
 pandas
+pandas-stubs
 yfinance
 redis
+mypy
+pydantic
+types-requests
+bs4
+types-beautifulsoup4

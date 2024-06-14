@@ -1,4 +1,3 @@
-from redis import Redis
 from typing import List, Dict, Any
 from datetime import datetime, timedelta
 from GLOBALS import GLOBALS as GB
@@ -6,7 +5,7 @@ from MarketsRef import MarketsRef as MR
 from io import StringIO
 import pandas as pd
 import re
-import yfinance as yf
+import yfinance as yf 
 import utils
 import logging
 from Market import Market
@@ -106,7 +105,10 @@ class MarketUpdater(Market):
                     ticker_split_list = [ticker.split(".")[0] for ticker in ticker_table_list]
                     ticker_hyphen_list = [ticker.replace(" ","-") for ticker in ticker_split_list]
                     ticker_list = [ticker + suffix for ticker in ticker_hyphen_list]
-                return ticker_list
+
+            return ticker_list
+            
+           
           
 
         def __get_components_list_from_html():
