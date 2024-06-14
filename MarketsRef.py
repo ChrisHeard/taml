@@ -11,7 +11,7 @@ class MarketsRef:
             "hash_key": 'AEX',
             "suffix": '.AS',
             "adjustments": [],
-            "parser": False
+            "parser": None
         },
         
         "BEL20": {

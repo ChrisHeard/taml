@@ -12,19 +12,18 @@ logger = logging.getLogger(__name__)
 
 
 class Market(BaseModel, ABC):
+    
     id: str
     name: Optional[str] = None
     api_ticker: Optional[str] = None
-    reference_url: Optional[str] = None
     suffix: Optional[str] = None
+
     index_hash: Optional[bytes] = None
     components_hash: Optional[bytes] = None
     link_hash: Optional[bytes] = None
     link_ref: Optional[List[str]] = None
-    adjustments: Optional[List[str]] = None
-    parser: Optional[bool] = None
-    parser_fn: Optional[Callable[[str], str]] = None
     client: Optional[Redis] = None
+
 
     def __init__(self, id: str):
         super().__init__(id=id)
