@@ -1,150 +1,148 @@
-
-from typing import Callable, Optional, List, Dict, Any
-from GLOBALS import GLOBALS as GB
-from io import StringIO
-import yfinance as yf
-import pandas as pd
-import utils
+from MarketsRef import MarketsRef
+from RedisManager import RedisManager
+from CustomLogger import CustomLogger
+from bs4 import BeautifulSoup as bs, ResultSet
+import parsers
+import pandas as pd 
 import re
-from datetime import datetime, timedelta
-from MarketsRef import MarketsRef as MR
+import requests
+import yfinance as yf
+from io import StringIO
+from typing import List, Any, Optional, Dict, Callable
 
-class MarketUpdater():
+class MarketUpdater:
 
-    reference_url: str
-    parser: Optional[Callable[[str], str]]
+    redis: RedisManager
+    cache: MarketsRef
+    logger: CustomLogger
 
-    def __init__(self, market: object, url, parser) -> None:
-        
-        self.market = market
-        self.url = url
-        self.parser = self.__get_parser(market, parser)
+    active_dict: Optional[Dict[str,Any]]
 
-    def __get_parser(self, market, parser) -> Optional[Callable[[str], str]]:
+    PARSER_REGISTRY: Dict[str, Callable[[List[str], str], List[str]]] = {
+        "bel20_parser": parsers.bel20_parser,
+        "eurostoxx50_parser": parsers.eurostoxx50_parser,
+        "ftse100_parser": parsers.ftse100_parser
+    }
 
-        if self.parser:
-            parser = GB.PARSER_REGISTRY.get(f"{market.id}_parser")
-            if parser:
-                return parser
-            else:
-                raise ValueError(f"Parser for {market.id} could not be found in PARSER_REGISTRY. Ensure that the parser string reference is named \"{market.id}_parser\" or set the parser bool to False.")
-        else:
-            return None
-        
+    def __init__(self) -> None:
 
-    def update_all(self) -> None:
-            
-        self.dt_now = datetime.now()
+        self.redis = RedisManager()
+        self.cache = MarketsRef()
+        self.logger = CustomLogger('updater')
 
-        if self.check_update_req('index'):
-            self.update_index()
+    async def update_links(self, a_dict) -> None:
+        self.logger.info(f"Attempting to update 'links' for {a_dict['symbol']}.")
+        new_linked_components = await self.__get_linked_components(a_dict)
+        await self.redis.store_py_obj("links", a_dict['symbol'], new_linked_components)
+        self.logger.info(f"Successfully updated 'links' for {a_dict['symbol']}.")
 
-        if self.check_update_req('components'):
-            self.update_components()
-        
-        if self.check_update_req('links'):
-            self.update_links()
+    async def update_components(self, a_dict) -> None:
+        self.logger.info(f"Attempting to update 'components' for {a_dict['symbol']}.")
+        new_components_data = await self.__get_components_data(a_dict)
+        await self.redis.store_py_obj('components',a_dict['symbol'], new_components_data)
+        self.logger.info(f"Successfully updated 'components' for {a_dict['symbol']}.")
 
+    async def update_index(self, a_dict) -> None:
+        self.logger.info(f"Attempting to update 'index' for {a_dict['symbol']}.")
+        new_index_data = await self.__get_index_dict(a_dict)
+        await self.redis.store_py_obj('indices', a_dict['symbol'], new_index_data)
+        self.logger.info(f"Successfully updated 'index' for {a_dict['symbol']}.")
 
-    def check_update_req(self, table):
+    async def update_all(self, id=None, a_dict=None) -> None:
+        if id:
+            a_dict = self.cache.marketsDict[id]
+            await self.update_links(a_dict)
+            await self.update_index(a_dict)
+            await self.update_components(a_dict)
+        elif a_dict:
+            await self.update_links(a_dict)
+            await self.update_index(a_dict)
+            await self.update_components(a_dict)
 
-        if not self.dt_now: 
-            self.dt_now = datetime.now()
+    async def __get_linked_components(self, a_dict) -> List[str]:
 
-        hash_key = f'{table}:{self.main.id}'
+        '''
+        Returns a list of all the components stock tickers for an input market ETF
 
-        try:
-            if self.market.redis.exists(hash_key):
-                timestamp_log = [field.decode('utf-8') for field in self.market.redis.hkeys(hash_key)]
-                timestamp_log_datetimes = [datetime.strptime(ts, GB.REDIS_TIMESTAMP_FORMAT) for ts in timestamp_log]
-                most_recent_datetime = max(timestamp_log_datetimes)
-                time_difference = self.dt_now - most_recent_datetime
+        e.g. input "FTSE100" -> output ["ticker1", "ticker2"...]
+        '''
 
-                if time_difference > timedelta(days=GB.REDIS_DATA_EXPIRATION_TIMER):
-                    print(f'{hash_key} data has expired and will be updated.')
-                    return True
-                else:
-                    print(f'{hash_key} data has not yet expired and will not update.')
-                    return False
-            else:
-                print(f"The key '{hash_key}' does not exist and will be initialized.")
-                return True
-        except TypeError as e:
-            print(f"TypeError: {e}")
-            return False
-        except Exception as e:
-            print(f"An error occurred: {e}")
-            return False
-        
-    def update_index(self) -> None:
-        new_index_data = self.__get_index_dict()
-        utils.redis_store_py_obj(self.market.redis, self.market.index_hash, new_index_data, self.dt_now)
-
-    def update_components(self) -> None:
-        new_components_data = self.__get_components_data()
-        utils.redis_store_py_obj(self.market.redis, self.market.components_hash, new_components_data, self.dt_now)
-
-    def update_links(self) -> None:
-        new_linked_components = self.__get_linked_components()
-        utils.redis_store_py_obj(self.market.redis, self.market.link_hash, new_linked_components, self.dt_now)
-
-    def __get_components_data(self) -> List[Dict[str, Any]]:
-
-        def __component_data_api_call(component):
-            try:
-                info = yf.Ticker(component).info
-                company_info = {key: info.get(key, "") for key in MR.componentInfoKeys}
-                return company_info
-            except Exception as e:
-                print(e)
-                raise ValueError(f'API call for {component} during the components data update process failed. Please check the components ticker symbol for validity within the {self.id} key. Manually adjusting the ticker symbol in the market\'s \'adjustments\' field may be required')
-
-        components_data = [__component_data_api_call(component) for component in self.market.link_ref]
-        return components_data
-    
-    def __get_index_dict(self) -> Dict[str, Any]:
-        yf_dict = yf.Ticker(self.market.api_ticker).info
-        norm_dict = {key: yf_dict.get(key, "") for key in MR.indexInfoKeys}
-        index_dict = {"id": self.market.id, **norm_dict}
-        return index_dict
-    
-    
-    def __get_linked_components(self) -> List[str]:
-
-        def __read_html_table_str(table, custom_parser, suffix) -> List[str]:
-
+        def __read_html_table_str(table,a_dict) -> List[str]:
             df = pd.read_html(StringIO(str(table)))[0]
             df.columns = pd.Index([str(col) for col in df.columns])
             ticker_col = next((col for col in df.columns if re.search(r'Ticker|Symbol', col, re.IGNORECASE)), None)
             if ticker_col:
                 ticker_table_list = df[ticker_col].astype(str).tolist()
-                if custom_parser:
-                    ticker_list = custom_parser(ticker_table_list, suffix)
+                parser = __get_parser(a_dict)
+                if parser:
+                    return parser(ticker_table_list, a_dict['suffix'])
                 else:
                     ticker_split_list = [ticker.split(".")[0] for ticker in ticker_table_list]
-                    ticker_hyphen_list = [ticker.replace(" ","-") for ticker in ticker_split_list]
-                    ticker_list = [ticker + suffix for ticker in ticker_hyphen_list]
+                    ticker_hyphen_list = [ticker.replace(" ", "-") for ticker in ticker_split_list]
+                    return [ticker + a_dict['suffix'] for ticker in ticker_hyphen_list]
+            return []
+        
+        def __get_html_tables(url: str) -> ResultSet[Any]:
 
-            return ticker_list
-            
-
-        def __get_components_list_from_html():
-            tables = utils.get_html_tables(self.reference_url)
-            parser = self.parser if self.parser else None
-
+            response = requests.get(url)
+            html_content = response.content
+            soup = bs(html_content, 'html.parser')
+            tables = soup.find_all('table')
+            return tables
+        
+        def __get_components_list_from_html(a_dict):
+            tables = __get_html_tables(a_dict['url'])
             for table in tables:
-                components_list = __read_html_table_str(table, parser, self.suffix)
+                components_list = __read_html_table_str(table, a_dict)
                 if components_list:
                     return components_list
-                
 
-        def __adjust_components_list(components_list: List[str]):
-            adjustments_dict = dict(self.market.adjustments)
-            adjusted_components_list = [adjustments_dict.get(component, component) for component in components_list]
-            return adjusted_components_list
+        def __adjust_components_list(components_list: List[str]) -> List[str]:
 
-        components_list = __get_components_list_from_html()
+            if self.active_dict:
+                adjustments_dict = dict(self.active_dict['adjustments'])
+            else:
+                print("An operation was attempted with a dict that doesnt exist in __adjust_components_list")
 
-        adjusted_components_list = __adjust_components_list(components_list)
+            return [adjustments_dict.get(component, component) for component in components_list]
 
-        return adjusted_components_list
+        def __get_parser(a_dict: dict) -> Optional[Callable[[List[str], str], List[str]]]:
+            
+            parser_name = a_dict['parser']
+
+            if parser_name:
+                parser_func = self.PARSER_REGISTRY.get(parser_name)
+                if parser_func:
+                    return parser_func
+                else:
+                    raise ValueError(f"Parser for {self.cache.marketsDict['id']} could not be found in PARSER_REGISTRY. Ensure that the parser string reference is named \"{self.cache.marketsDict['id']}_parser\" or set the parser bool to False.")
+            return None
+
+       
+        _components_list = __get_components_list_from_html(a_dict)
+
+        _adjusted_list = __adjust_components_list(_components_list)
+
+        return _adjusted_list
+
+    async def __get_index_dict(self, a_dict) -> Dict[str, Any]:
+        yf_dict = yf.Ticker(a_dict['api_ticker']).info
+        return {"id": a_dict['symbol'], **{key: yf_dict.get(key, "") for key in self.cache.indexInfoKeys}}
+    
+    async def __get_components_data(self, a_dict) -> Optional[List[Dict[str, Any]]]:
+
+        def __component_data_api_call(component: str) -> Dict[str, Any]:
+            try:
+                info = yf.Ticker(component).info
+                return {key: info.get(key, "") for key in self.cache.componentInfoKeys}
+            except Exception as e:
+                print(e)
+                raise ValueError(f'API call for {component} during the components data update process failed. Please check the components ticker symbol for validity within the {a_dict['symbol']} key. Manually adjusting the ticker symbol in the market\'s \'adjustments\' field may be required')
+
+
+        linked_components = await self.redis.get_py_obj('links', a_dict['symbol'])
+
+        if linked_components:
+            return [__component_data_api_call(component) for component in linked_components]
+        else:
+            return None

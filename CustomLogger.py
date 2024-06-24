@@ -23,12 +23,12 @@ class CustomLogger:
             
             error_handler = logging.FileHandler(error_log_file, mode='a')
             error_handler.setLevel(logging.ERROR)
-            error_formatter = logging.Formatter('%(asctime)s - %(name)s - %(levellevel)s - %(message)s')
+            error_formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
             error_handler.setFormatter(error_formatter)
             
             console_handler = logging.StreamHandler()
             console_handler.setLevel(logging.DEBUG)
-            console_formatter = logging.Formatter('%(asctime)s - %(name)s - %(levellevel)s - %(message)s')
+            console_formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
             console_handler.setFormatter(console_formatter)
             
             self.logger.addHandler(info_handler)

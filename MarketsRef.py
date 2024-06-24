@@ -1,6 +1,8 @@
+from typing import Dict, Any
+
 class MarketsRef:
        
-    marketsDict = {
+    marketsDict: Dict[str, Dict[str, Any]] = {
 
         "AEX": {
 
@@ -18,7 +20,7 @@ class MarketsRef:
             "url": 'https://en.wikipedia.org/wiki/BEL_20',
             "symbol": 'BEL20',
             "name": 'BEL20',
-            "ticker_symbol": '^BFX',
+            "api_ticker": '^BFX',
             "suffix": '.BR',
             "adjustments": [("APAM.BR","APAM.AS")],
             "parser": "bel20_parser"
@@ -28,7 +30,7 @@ class MarketsRef:
             "url": 'https://en.wikipedia.org/wiki/CAC_40',
             "symbol": 'CAC40',
             "name": 'CAC40',
-            "ticker_symbol": '^FCHI',
+            "api_ticker": '^FCHI',
             "suffix": '.PA',
             "adjustments": [],
             "parser": None
@@ -38,7 +40,7 @@ class MarketsRef:
             "url": 'https://en.wikipedia.org/wiki/DAX',
             "symbol": 'DAX',
             "name": 'DAX',
-            "ticker_symbol": '^GDAXI',
+            "api_ticker": '^GDAXI',
             "suffix": '.DE',
             "adjustments": [],
             "parser": None
@@ -48,7 +50,7 @@ class MarketsRef:
             "url": 'https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average',
             "symbol": 'DOWJONES',
             "name": 'Dow Jones',
-            "ticker_symbol": '^DJI',
+            "api_ticker": '^DJI',
             "suffix": '',
             "adjustments": [],
             "parser": None
@@ -58,7 +60,7 @@ class MarketsRef:
             "url": 'https://en.wikipedia.org/wiki/EURO_STOXX_50',
             "symbol": 'EUROSTOXX50',
             "name": 'Euro Stoxx 50',
-            "ticker_symbol": '^STOXX50E',
+            "api_ticker": '^STOXX50E',
             "suffix": '',
             "adjustments": [],
             "parser": "eurostoxx50_parser"
@@ -68,7 +70,7 @@ class MarketsRef:
             "url": 'https://en.wikipedia.org/wiki/FTSE_100_Index',
             "symbol": 'FTSE100',
             "name": 'FTSE 100',
-            "ticker_symbol": '^FTSE',
+            "api_ticker": '^FTSE',
             "suffix": '.L',
             "adjustments": [('BT.L', 'BT-A.L')],
             "parser": "ftse100_parser"
@@ -78,7 +80,7 @@ class MarketsRef:
             "url": 'https://en.wikipedia.org/wiki/OMX_Helsinki_25',
             "symbol": 'OMXH25',
             "name": 'OMX Helsinki 25',
-            "ticker_symbol": '^OMXH25',
+            "api_ticker": '^OMXH25',
             "suffix": '.HE',
             "adjustments": [],
             "parser": None
@@ -88,7 +90,7 @@ class MarketsRef:
             "url": 'https://en.wikipedia.org/wiki/OMX_Stockholm_30',
             "symbol": 'OMXS30',
             "name": "OMX Stockholm 30",
-            "ticker_symbol": '^OMX',
+            "api_ticker": '^OMX',
             "suffix": '.ST',
             "adjustments": [],
             "parser": None
@@ -98,7 +100,7 @@ class MarketsRef:
             "url": 'https://en.wikipedia.org/wiki/IBEX_35',
             "symbol": 'IBEX35',
             "name": "IBEX 35",
-            "ticker_symbol": '^IBEX',
+            "api_ticker": '^IBEX',
             "suffix": '.MC',
             "adjustments": [],
             "parser": None
@@ -108,7 +110,7 @@ class MarketsRef:
             "url": 'https://en.wikipedia.org/wiki/MDAX',
             "symbol": 'MDAX',
             "name": "MDAX",
-            "ticker_symbol": '^MDAXI',
+            "api_ticker": '^MDAXI',
             "suffix": '.DE',
             "adjustments": [],
             "parser": None
@@ -118,7 +120,7 @@ class MarketsRef:
             "url": 'https://en.wikipedia.org/wiki/NASDAQ-100',
             "symbol": 'NASDAQ100',
             "name": "NASDAQ 100",
-            "ticker_symbol": '^NDX',
+            "api_ticker": '^NDX',
             "suffix": '',
             "adjustments": [],
             "parser": None
@@ -128,7 +130,7 @@ class MarketsRef:
             "url": 'https://en.wikipedia.org/wiki/S%26P_100',
             "symbol": 'SP100',
             "name": 'SP 100',
-            "ticker_symbol": '^OEX',
+            "api_ticker": '^OEX',
             "suffix": '',
             "adjustments": [],
             "parser": None
@@ -138,7 +140,7 @@ class MarketsRef:
             "url": 'https://en.wikipedia.org/wiki/List_of_S%26P_500_companies',
             "symbol": 'SP500',
             "name": 'SP 500',
-            "ticker_symbol": '^GSPC',
+            "api_ticker": '^GSPC',
             "suffix": '',
             "adjustments": [],
             "parser": None
@@ -148,7 +150,7 @@ class MarketsRef:
             "url": 'https://en.wikipedia.org/wiki/Swiss_Market_Index',
             "symbol": 'SW20',
             "name": 'Switzerland 20',
-            "ticker_symbol": '^SSMI',
+            "api_ticker": '^SSMI',
             "suffix": '.SW',
             "adjustments": [],
             "parser": None

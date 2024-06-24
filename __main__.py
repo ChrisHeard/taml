@@ -1,10 +1,15 @@
-from MarketBuilder import MarketBuilder
-from MarketsRef import MarketsRef as MR
+import asyncio
+from MarketUpdater import MarketUpdater
 
-mr_dict = MR.marketsDict
+async def main():
 
-market_array = [MarketBuilder(id=key).build() for key in mr_dict]
+    updater = MarketUpdater()
+    updater.active_dict = updater.cache.marketsDict['AEX']
+    await updater.update_all(updater.active_dict)
 
 
-for market in market_array:
-    market.updater.update_all()
+if __name__ == '__main__':
+
+    asyncio.run(main())
+
+
