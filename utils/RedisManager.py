@@ -1,4 +1,4 @@
-from GLOBALS import GLOBALS as GB
+from backend.static.GLOBALS import GLOBALS as GB
 from redis.asyncio import ConnectionPool, Redis
 from typing import Optional, Any, List
 from contextlib import asynccontextmanager

@@ -1,14 +1,15 @@
-from MarketsRef import MarketsRef
-from RedisManager import RedisManager
-from CustomLogger import CustomLogger
+from backend.static.MarketsRef import MarketsRef
+from backend.utils.RedisManager import RedisManager
+from backend.utils.CustomLogger import CustomLogger
 from bs4 import BeautifulSoup as bs, ResultSet
-import parsers
 import pandas as pd 
 import re
 import requests
 import yfinance as yf
 from io import StringIO
 from typing import List, Any, Optional, Dict, Callable
+
+
 
 class MarketUpdater:
 
@@ -18,17 +19,22 @@ class MarketUpdater:
 
     active_dict: Optional[Dict[str,Any]]
 
-    PARSER_REGISTRY: Dict[str, Callable[[List[str], str], List[str]]] = {
-        "bel20_parser": parsers.bel20_parser,
-        "eurostoxx50_parser": parsers.eurostoxx50_parser,
-        "ftse100_parser": parsers.ftse100_parser
-    }
-
+    
+    
     def __init__(self) -> None:
 
         self.redis = RedisManager()
         self.cache = MarketsRef()
-        self.logger = CustomLogger('updater')
+        self.logger = CustomLogger()
+
+        self.active_dict = None
+
+        self.PARSER_REGISTRY: Dict[str, Callable[[List[str], str], List[str]]] = {
+            "bel20_parser": self.bel20_parser,
+            "eurostoxx50_parser": self.eurostoxx50_parser,
+            "ftse100_parser": self.ftse100_parser
+        }
+
 
     async def update_links(self, a_dict) -> None:
         self.logger.info(f"Attempting to update 'links' for {a_dict['symbol']}.")
@@ -49,15 +55,15 @@ class MarketUpdater:
         self.logger.info(f"Successfully updated 'index' for {a_dict['symbol']}.")
 
     async def update_all(self, id=None, a_dict=None) -> None:
+
         if id:
             a_dict = self.cache.marketsDict[id]
+        if a_dict:
             await self.update_links(a_dict)
             await self.update_index(a_dict)
             await self.update_components(a_dict)
-        elif a_dict:
-            await self.update_links(a_dict)
-            await self.update_index(a_dict)
-            await self.update_components(a_dict)
+        else:
+            ValueError("MarketUpdater update_all() was called but no market id or dictionary was provided.")
 
     async def __get_linked_components(self, a_dict) -> List[str]:
 
@@ -146,3 +152,14 @@ class MarketUpdater:
             return [__component_data_api_call(component) for component in linked_components]
         else:
             return None
+        
+    def bel20_parser(self, ticker_table_list: List[str], suffix: str) -> List[str]:
+        updated_tickers = [ticker.split(":\xa0")[1] + suffix for ticker in ticker_table_list]
+        return updated_tickers
+
+    def eurostoxx50_parser(self, ticker_table_list: List[str], suffix: str) -> List[str]:
+        return ticker_table_list
+
+    def ftse100_parser(self, ticker_table_list: List[str], suffix: str) -> List[str]:
+        ticker_list = [ticker.split(".")[0] + suffix for ticker in ticker_table_list]
+        return ticker_list
