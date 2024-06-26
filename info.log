@@ -1,0 +1,93 @@
+2024-06-16 09:25:29,314 - taml-log - INFO - links:BEL20 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 09:25:31,369 - taml-log - INFO - links:CAC40 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 09:25:33,425 - taml-log - INFO - links:DAX returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 09:25:35,465 - taml-log - INFO - links:DOWJONES returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 09:25:37,507 - taml-log - INFO - links:EUROSTOXX50 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 09:25:39,550 - taml-log - INFO - links:FTSE100 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 09:25:41,594 - taml-log - INFO - links:OMXH25 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 09:25:43,635 - taml-log - INFO - links:OMXS30 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 09:25:45,676 - taml-log - INFO - links:IBEX35 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 09:25:47,720 - taml-log - INFO - links:MDAX returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 09:25:49,763 - taml-log - INFO - links:NASDAQ100 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 09:25:51,801 - taml-log - INFO - links:SP100 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 09:25:53,840 - taml-log - INFO - links:SP500 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 09:25:55,878 - taml-log - INFO - links:SW20 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 09:37:25,287 - taml-log - INFO - links:BEL20 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 09:37:27,323 - taml-log - INFO - links:CAC40 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 09:37:29,361 - taml-log - INFO - links:DAX returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 09:37:31,399 - taml-log - INFO - links:DOWJONES returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 09:37:33,442 - taml-log - INFO - links:EUROSTOXX50 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 13:19:06,799 - taml-log - INFO - links:BEL20 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 13:19:08,832 - taml-log - INFO - links:CAC40 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 13:19:10,870 - taml-log - INFO - links:DAX returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 13:19:12,910 - taml-log - INFO - links:DOWJONES returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 13:19:14,945 - taml-log - INFO - links:EUROSTOXX50 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 13:19:16,987 - taml-log - INFO - links:FTSE100 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 13:19:19,020 - taml-log - INFO - links:OMXH25 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 13:19:21,052 - taml-log - INFO - links:OMXS30 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 13:19:23,081 - taml-log - INFO - links:IBEX35 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 13:19:25,114 - taml-log - INFO - links:MDAX returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 13:19:27,149 - taml-log - INFO - links:NASDAQ100 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 13:19:29,184 - taml-log - INFO - links:SP100 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 13:19:31,222 - taml-log - INFO - links:SP500 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 13:19:33,253 - taml-log - INFO - links:SW20 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 13:23:20,902 - taml-log - INFO - links:BEL20 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 13:23:22,942 - taml-log - INFO - links:CAC40 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 13:23:24,984 - taml-log - INFO - links:DAX returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 13:23:27,019 - taml-log - INFO - links:DOWJONES returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 13:23:29,062 - taml-log - INFO - links:EUROSTOXX50 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 13:23:31,102 - taml-log - INFO - links:FTSE100 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 13:23:33,140 - taml-log - INFO - links:OMXH25 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 13:23:35,176 - taml-log - INFO - links:OMXS30 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 15:34:39,420 - taml-log - INFO - links:BEL20 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 15:34:41,449 - taml-log - INFO - links:CAC40 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 15:34:43,503 - taml-log - INFO - links:DAX returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 15:34:45,547 - taml-log - INFO - links:DOWJONES returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 15:34:47,603 - taml-log - INFO - links:EUROSTOXX50 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 15:34:49,657 - taml-log - INFO - links:FTSE100 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 15:34:51,703 - taml-log - INFO - links:OMXH25 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 15:34:53,746 - taml-log - INFO - links:OMXS30 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 15:34:55,774 - taml-log - INFO - links:IBEX35 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 15:34:57,816 - taml-log - INFO - links:MDAX returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 15:34:59,872 - taml-log - INFO - links:NASDAQ100 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 15:35:01,918 - taml-log - INFO - links:SP100 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 15:35:03,978 - taml-log - INFO - links:SP500 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-16 15:35:06,033 - taml-log - INFO - links:SW20 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-17 13:02:34,645 - taml-log - INFO - links:BEL20 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-17 13:02:36,684 - taml-log - INFO - links:CAC40 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-17 13:02:38,719 - taml-log - INFO - links:DAX returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-17 13:02:40,746 - taml-log - INFO - links:DOWJONES returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-17 13:02:42,782 - taml-log - INFO - links:EUROSTOXX50 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-17 13:02:44,826 - taml-log - INFO - links:FTSE100 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-17 13:02:46,856 - taml-log - INFO - links:OMXH25 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-17 13:02:48,894 - taml-log - INFO - links:OMXS30 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-17 13:02:50,932 - taml-log - INFO - links:IBEX35 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-17 13:02:52,970 - taml-log - INFO - links:MDAX returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-17 13:02:55,009 - taml-log - INFO - links:NASDAQ100 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-17 13:02:57,050 - taml-log - INFO - links:SP100 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-17 13:02:59,088 - taml-log - INFO - links:SP500 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-17 13:03:01,126 - taml-log - INFO - links:SW20 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-17 13:05:29,738 - taml-log - INFO - links:BEL20 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-17 13:05:31,776 - taml-log - INFO - links:CAC40 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-17 13:05:33,814 - taml-log - INFO - links:DAX returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-17 13:05:35,850 - taml-log - INFO - links:DOWJONES returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-17 13:05:37,890 - taml-log - INFO - links:EUROSTOXX50 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-17 13:05:39,921 - taml-log - INFO - links:FTSE100 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-17 13:05:41,953 - taml-log - INFO - links:OMXH25 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-17 13:05:43,988 - taml-log - INFO - links:OMXS30 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-17 13:05:46,026 - taml-log - INFO - links:IBEX35 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-17 13:05:48,066 - taml-log - INFO - links:MDAX returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-17 13:05:50,098 - taml-log - INFO - links:NASDAQ100 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-17 13:05:52,134 - taml-log - INFO - links:SP100 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-17 13:05:54,174 - taml-log - INFO - links:SP500 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-17 13:05:56,209 - taml-log - INFO - links:SW20 returned an empty dict and requires initializing. Use MarketUpdater to initialize.
+2024-06-24 14:34:45,038 - updater - INFO - Attempting to update /'components/' for AEX.
+2024-06-24 14:35:20,293 - updater - INFO - Attempting to update /'links/' for AEX.
+2024-06-24 14:35:22,660 - updater - INFO - Attempting to update /'index/' for AEX.
+2024-06-24 14:35:26,696 - updater - INFO - Attempting to update /'components/' for AEX.
+2024-06-24 14:37:01,453 - updater - INFO - Attempting to update 'links' for AEX.
+2024-06-24 14:37:03,742 - updater - INFO - Successfully updated 'links' for AEX.
+2024-06-24 14:37:03,742 - updater - INFO - Attempting to update 'index' for AEX.
+2024-06-24 14:37:06,042 - updater - INFO - Successfully updated 'index' for AEX.
+2024-06-24 14:37:06,042 - updater - INFO - Attempting to update 'components' for AEX.
+2024-06-24 14:37:12,936 - updater - INFO - Successfully updated 'components' for AEX.

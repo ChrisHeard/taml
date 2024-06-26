@@ -3,5 +3,9 @@ requires = ["setuptools", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "taml.ai"
+name = "taml"
 version = "0.0.2"
+
+
+[project.optional-dependencies]
+dev = ['black']
