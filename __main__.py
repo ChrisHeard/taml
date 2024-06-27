@@ -1,17 +1,23 @@
-import asyncio
-from backend.updater.MarketUpdater import MarketUpdater
+from fastapi import FastAPI
+from fastapi.middleware.gzip import GZipMiddleware
+from fastapi.middleware.cors import CORSMiddleware
+from .routes.markets_routes import markets_router
 
-async def main():
+def create_app():
+    app = FastAPI()
+    app.include_router(markets_router)
+    app.add_middleware(GZipMiddleware, minimum_size=500)
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["http://127.0.0.1:4200"],
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"]
+    )
+    return app
 
-    updater = MarketUpdater()
-    updater.active_dict = updater.cache.marketsDict['AEX']
-    await updater.update_all(updater.active_dict)
+app = create_app()
 
-    
-
-
-if __name__ == '__main__':
-
-    asyncio.run(main())
-
-
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="127.0.0.1", port=8000)

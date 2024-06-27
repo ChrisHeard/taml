@@ -4,7 +4,6 @@ from typing import Optional, Any, List
 from contextlib import asynccontextmanager
 import json
 
-
 class RedisManager:
     _instance: Optional['RedisManager'] = None
     _pool: Optional[ConnectionPool] = None

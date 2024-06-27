@@ -54,7 +54,11 @@ class MarketUpdater:
         await self.redis.store_py_obj('indices', a_dict['symbol'], new_index_data)
         self.logger.info(f"Successfully updated 'index' for {a_dict['symbol']}.")
 
-    async def update_all(self, id=None, a_dict=None) -> None:
+    async def update_all(self) -> None:
+        for market in self.cache.marketsDict.keys():
+            await self.update_market(id=market)
+
+    async def update_market(self, id=None, a_dict=None) -> None:
 
         if id:
             a_dict = self.cache.marketsDict[id]
@@ -103,10 +107,10 @@ class MarketUpdater:
                 if components_list:
                     return components_list
 
-        def __adjust_components_list(components_list: List[str]) -> List[str]:
+        def __adjust_components_list(components_list: List[str], a_dict) -> List[str]:
 
-            if self.active_dict:
-                adjustments_dict = dict(self.active_dict['adjustments'])
+            if a_dict:
+                adjustments_dict = dict(a_dict['adjustments'])
             else:
                 print("An operation was attempted with a dict that doesnt exist in __adjust_components_list")
 
@@ -127,7 +131,7 @@ class MarketUpdater:
        
         _components_list = __get_components_list_from_html(a_dict)
 
-        _adjusted_list = __adjust_components_list(_components_list)
+        _adjusted_list = __adjust_components_list(_components_list, a_dict)
 
         return _adjusted_list
 

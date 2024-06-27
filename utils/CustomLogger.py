@@ -10,7 +10,7 @@ class CustomLogger:
             cls._instance._initialize_logger(*args, **kwargs)
         return cls._instance
  
-    def _initialize_logger(self, name: str, info_log_file: str = 'info.log', error_log_file: str = 'error.log', level: int = logging.DEBUG):
+    def _initialize_logger(self, name: str = "taml-log", info_log_file: str = 'info.log', error_log_file: str = 'error.log', level: int = logging.DEBUG):
         self.logger = logging.getLogger(name)
         self.logger.setLevel(level)
 
