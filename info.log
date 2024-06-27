@@ -91,3 +91,94 @@
 2024-06-24 14:37:06,042 - updater - INFO - Successfully updated 'index' for AEX.
 2024-06-24 14:37:06,042 - updater - INFO - Attempting to update 'components' for AEX.
 2024-06-24 14:37:12,936 - updater - INFO - Successfully updated 'components' for AEX.
+2024-06-26 16:27:54,839 - taml-log - INFO - Attempting to update 'links' for AEX.
+2024-06-26 16:30:40,576 - taml-log - INFO - Attempting to update 'links' for AEX.
+2024-06-26 16:30:42,852 - taml-log - INFO - Successfully updated 'links' for AEX.
+2024-06-26 16:30:42,852 - taml-log - INFO - Attempting to update 'index' for AEX.
+2024-06-26 16:30:45,337 - taml-log - INFO - Successfully updated 'index' for AEX.
+2024-06-26 16:30:45,337 - taml-log - INFO - Attempting to update 'components' for AEX.
+2024-06-26 16:30:51,518 - taml-log - INFO - Successfully updated 'components' for AEX.
+2024-06-26 16:30:51,518 - taml-log - INFO - Attempting to update 'links' for BEL20.
+2024-06-26 16:30:53,718 - taml-log - INFO - Successfully updated 'links' for BEL20.
+2024-06-26 16:30:53,719 - taml-log - INFO - Attempting to update 'index' for BEL20.
+2024-06-26 16:30:55,831 - taml-log - INFO - Successfully updated 'index' for BEL20.
+2024-06-26 16:30:55,832 - taml-log - INFO - Attempting to update 'components' for BEL20.
+2024-06-26 16:31:01,524 - taml-log - INFO - Successfully updated 'components' for BEL20.
+2024-06-26 16:31:01,524 - taml-log - INFO - Attempting to update 'links' for CAC40.
+2024-06-26 16:31:03,765 - taml-log - INFO - Successfully updated 'links' for CAC40.
+2024-06-26 16:31:03,765 - taml-log - INFO - Attempting to update 'index' for CAC40.
+2024-06-26 16:31:05,880 - taml-log - INFO - Successfully updated 'index' for CAC40.
+2024-06-26 16:31:05,881 - taml-log - INFO - Attempting to update 'components' for CAC40.
+2024-06-26 16:31:13,453 - taml-log - INFO - Successfully updated 'components' for CAC40.
+2024-06-26 16:31:13,453 - taml-log - INFO - Attempting to update 'links' for DAX.
+2024-06-26 16:31:15,696 - taml-log - INFO - Successfully updated 'links' for DAX.
+2024-06-26 16:31:15,697 - taml-log - INFO - Attempting to update 'index' for DAX.
+2024-06-26 16:31:17,807 - taml-log - INFO - Successfully updated 'index' for DAX.
+2024-06-26 16:31:17,808 - taml-log - INFO - Attempting to update 'components' for DAX.
+2024-06-26 16:31:25,421 - taml-log - INFO - Successfully updated 'components' for DAX.
+2024-06-26 16:31:25,421 - taml-log - INFO - Attempting to update 'links' for DOWJONES.
+2024-06-26 16:31:27,721 - taml-log - INFO - Successfully updated 'links' for DOWJONES.
+2024-06-26 16:31:27,722 - taml-log - INFO - Attempting to update 'index' for DOWJONES.
+2024-06-26 16:31:29,829 - taml-log - INFO - Successfully updated 'index' for DOWJONES.
+2024-06-26 16:31:29,830 - taml-log - INFO - Attempting to update 'components' for DOWJONES.
+2024-06-26 16:31:36,478 - taml-log - INFO - Successfully updated 'components' for DOWJONES.
+2024-06-26 16:31:36,478 - taml-log - INFO - Attempting to update 'links' for EUROSTOXX50.
+2024-06-26 16:31:38,734 - taml-log - INFO - Successfully updated 'links' for EUROSTOXX50.
+2024-06-26 16:31:38,735 - taml-log - INFO - Attempting to update 'index' for EUROSTOXX50.
+2024-06-26 16:31:40,846 - taml-log - INFO - Successfully updated 'index' for EUROSTOXX50.
+2024-06-26 16:31:40,846 - taml-log - INFO - Attempting to update 'components' for EUROSTOXX50.
+2024-06-26 16:31:49,156 - taml-log - INFO - Successfully updated 'components' for EUROSTOXX50.
+2024-06-26 16:31:49,156 - taml-log - INFO - Attempting to update 'links' for FTSE100.
+2024-06-26 16:31:51,516 - taml-log - INFO - Successfully updated 'links' for FTSE100.
+2024-06-26 16:31:51,516 - taml-log - INFO - Attempting to update 'index' for FTSE100.
+2024-06-26 16:31:53,633 - taml-log - INFO - Successfully updated 'index' for FTSE100.
+2024-06-26 16:31:53,634 - taml-log - INFO - Attempting to update 'components' for FTSE100.
+2024-06-26 16:32:06,410 - taml-log - INFO - Successfully updated 'components' for FTSE100.
+2024-06-26 16:32:06,411 - taml-log - INFO - Attempting to update 'links' for OMXH25.
+2024-06-26 16:32:08,568 - taml-log - INFO - Successfully updated 'links' for OMXH25.
+2024-06-26 16:32:08,569 - taml-log - INFO - Attempting to update 'index' for OMXH25.
+2024-06-26 16:32:10,678 - taml-log - INFO - Successfully updated 'index' for OMXH25.
+2024-06-26 16:32:10,679 - taml-log - INFO - Attempting to update 'components' for OMXH25.
+2024-06-26 16:32:16,877 - taml-log - INFO - Successfully updated 'components' for OMXH25.
+2024-06-26 16:32:16,877 - taml-log - INFO - Attempting to update 'links' for OMXS30.
+2024-06-26 16:32:19,180 - taml-log - INFO - Successfully updated 'links' for OMXS30.
+2024-06-26 16:32:19,180 - taml-log - INFO - Attempting to update 'index' for OMXS30.
+2024-06-26 16:32:21,309 - taml-log - INFO - Successfully updated 'index' for OMXS30.
+2024-06-26 16:32:21,310 - taml-log - INFO - Attempting to update 'components' for OMXS30.
+2024-06-26 16:32:27,922 - taml-log - INFO - Successfully updated 'components' for OMXS30.
+2024-06-26 16:32:27,922 - taml-log - INFO - Attempting to update 'links' for IBEX35.
+2024-06-26 16:32:30,112 - taml-log - INFO - Successfully updated 'links' for IBEX35.
+2024-06-26 16:32:30,113 - taml-log - INFO - Attempting to update 'index' for IBEX35.
+2024-06-26 16:32:32,225 - taml-log - INFO - Successfully updated 'index' for IBEX35.
+2024-06-26 16:32:32,226 - taml-log - INFO - Attempting to update 'components' for IBEX35.
+2024-06-26 16:32:39,303 - taml-log - INFO - Successfully updated 'components' for IBEX35.
+2024-06-26 16:32:39,303 - taml-log - INFO - Attempting to update 'links' for MDAX.
+2024-06-26 16:32:41,508 - taml-log - INFO - Successfully updated 'links' for MDAX.
+2024-06-26 16:32:41,509 - taml-log - INFO - Attempting to update 'index' for MDAX.
+2024-06-26 16:32:43,614 - taml-log - INFO - Successfully updated 'index' for MDAX.
+2024-06-26 16:32:43,614 - taml-log - INFO - Attempting to update 'components' for MDAX.
+2024-06-26 16:32:53,585 - taml-log - INFO - Successfully updated 'components' for MDAX.
+2024-06-26 16:32:53,585 - taml-log - INFO - Attempting to update 'links' for NASDAQ100.
+2024-06-26 16:32:55,947 - taml-log - INFO - Successfully updated 'links' for NASDAQ100.
+2024-06-26 16:32:55,947 - taml-log - INFO - Attempting to update 'index' for NASDAQ100.
+2024-06-26 16:32:58,101 - taml-log - INFO - Successfully updated 'index' for NASDAQ100.
+2024-06-26 16:32:58,101 - taml-log - INFO - Attempting to update 'components' for NASDAQ100.
+2024-06-26 16:33:11,344 - taml-log - INFO - Successfully updated 'components' for NASDAQ100.
+2024-06-26 16:33:11,345 - taml-log - INFO - Attempting to update 'links' for SP100.
+2024-06-26 16:33:13,531 - taml-log - INFO - Successfully updated 'links' for SP100.
+2024-06-26 16:33:13,532 - taml-log - INFO - Attempting to update 'index' for SP100.
+2024-06-26 16:33:15,637 - taml-log - INFO - Successfully updated 'index' for SP100.
+2024-06-26 16:33:15,637 - taml-log - INFO - Attempting to update 'components' for SP100.
+2024-06-26 16:33:28,901 - taml-log - INFO - Successfully updated 'components' for SP100.
+2024-06-26 16:33:28,901 - taml-log - INFO - Attempting to update 'links' for SP500.
+2024-06-26 16:33:31,580 - taml-log - INFO - Successfully updated 'links' for SP500.
+2024-06-26 16:33:31,580 - taml-log - INFO - Attempting to update 'index' for SP500.
+2024-06-26 16:33:33,706 - taml-log - INFO - Successfully updated 'index' for SP500.
+2024-06-26 16:33:33,706 - taml-log - INFO - Attempting to update 'components' for SP500.
+2024-06-26 16:34:25,639 - taml-log - INFO - Successfully updated 'components' for SP500.
+2024-06-26 16:34:25,639 - taml-log - INFO - Attempting to update 'links' for SW20.
+2024-06-26 16:34:27,840 - taml-log - INFO - Successfully updated 'links' for SW20.
+2024-06-26 16:34:27,840 - taml-log - INFO - Attempting to update 'index' for SW20.
+2024-06-26 16:34:29,963 - taml-log - INFO - Successfully updated 'index' for SW20.
+2024-06-26 16:34:29,964 - taml-log - INFO - Attempting to update 'components' for SW20.
+2024-06-26 16:34:35,883 - taml-log - INFO - Successfully updated 'components' for SW20.
